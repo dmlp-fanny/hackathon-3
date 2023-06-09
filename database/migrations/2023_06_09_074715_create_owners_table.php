@@ -10,7 +10,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('owners', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->string('first_name')->nullable();
             $table->string('surname')->nullable();
             $table->string('email')->nullable();
