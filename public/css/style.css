@@ -1,0 +1,52 @@
+*, 
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0 auto;
+    background: linear-gradient(300deg, rgba(219,226,226,1) 0%, rgba(210,210,185,1) 52%, rgba(255,250,238,1) 100%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background-color: white;
+    color:black;
+    height: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main {
+    width: 60%;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+.alert-danger {
+    background-color: lightcoral;
+    color: red;
+}
+
+.alert-success {
+    color: lightseagreen;
+    color: green;
+}
+
+a {
+    text-decoration: none;
+}

@@ -3,26 +3,45 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\AnimalRequest;
 use App\Models\Animal;
+use App\Models\Owner;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
         $animal = new Animal();
+        
+        if ($request->has('owner')) {
 
-        return view('animals.animal-form', compact('animal'));
+            $owners = Owner::query()
+                ->where('surname', 'like', '%' . $request->input('owner') . '%')
+                ->get();
+
+            return view('animals.animal-form', compact('owners', 'animal'));
+        }
+
+        if ($request->has('id')) {
+            $owner = Owner::findOrFail($request->id);
+
+            return view('animals.animal-form', compact('owner', 'animal'));
+        }
+
+
+        return view('animals.animal-form');
+
     }
 
     public function store(AnimalRequest $request)
     {
-        $animal = new Animal();
 
+        $animal = new Animal();
+        $animal->owner_id = $request->input('owner_id');
         $animal->name = $request->input('name');
         $animal->species = $request->input('species');
         $animal->breed = $request->input('breed');
         $animal->age = $request->input('age');
-        $animal->weigth = $request->input('weigth');
+        $animal->weight = $request->input('weight');
         $animal->save();
 
         session()->flash('success_message', 'The animal was succesfully added.');
@@ -34,18 +53,21 @@ class AnimalController extends Controller
     {
         $animal = Animal::findOrFail($id);
 
-        return view('animals.animal-form', compact('animal'));
+        $owner = $animal->owner;
+
+        return view('animals.animal-form', compact('owner','animal'));
     }
 
     public function update(AnimalRequest $request, $id)
     {
         $animal = Animal::findOrFail($id);
 
+        $animal->owner_id = $request->input('owner_id');
         $animal->name = $request->input('name');
         $animal->species = $request->input('species');
         $animal->breed = $request->input('breed');
         $animal->age = $request->input('age');
-        $animal->weigth = $request->input('weigth');
+        $animal->weight = $request->input('weight');
         $animal->save();
 
         session()->flash('success_message', 'The animal was succesfully updated.');

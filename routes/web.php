@@ -27,7 +27,7 @@ Route::get('/owners/{id}/edit', [OwnerController::class, 'edit'])->name('owners.
 
 Route::put('/owners/{id}', [OwnerController::class, 'update'])->name('owners.update');
 
-//for for the pet
+//form for the pet
 
 Route::get('/animals/create', [AnimalController::class, 'create'])->name('animals.create');
 
