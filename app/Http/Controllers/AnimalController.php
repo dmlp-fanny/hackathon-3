@@ -61,6 +61,22 @@ class AnimalController extends Controller
         ->get();
        
         return view('animals.index', compact('all_animals'));
+    }
 
-}
+    public function animalSearch(Request $request)
+    {
+        $search_term = $request->input('name');
+        
+        if ($search_term) {
+            $results = Animal::query()
+            ->where('name', 'like', '%' . $search_term . '%')
+            ->orderBy('name','asc')
+            ->with('image')
+            ->get();
+           
+            return view('animals.index', compact('search_term', 'results'));
+        }
+        return view('animals.index', compact('search_term'));
+    }
+    
 }

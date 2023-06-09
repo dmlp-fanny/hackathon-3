@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\OwnerController;
+use App\Models\Animal;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,3 +40,6 @@ Route::put('/animals/{id}', [AnimalController::class, 'update'])->name('animals.
 
 
 Route::get('/animals', [AnimalController::class, 'animals']);
+
+Route::get('/animals/search',[AnimalController::class,'animalSearch']);
+
