@@ -38,3 +38,4 @@ Route::get('/animals/{id}/edit', [AnimalController::class, 'edit'])->name('anima
 Route::put('/animals/{id}', [AnimalController::class, 'update'])->name('animals.update');
 
 
+Route::get('/animals', [AnimalController::class, 'animals']);

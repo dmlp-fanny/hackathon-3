@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OwnerRequest;
 use App\Models\Owner;
+use App\Models\Animal;
 use Illuminate\Http\Request;
 
 class OwnerController extends Controller
@@ -61,4 +62,5 @@ class OwnerController extends Controller
 
 
 
+    
 }

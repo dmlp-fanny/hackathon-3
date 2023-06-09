@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\AnimalRequest;
 use App\Models\Animal;
 use Illuminate\Http\Request;
@@ -22,7 +21,8 @@ class AnimalController extends Controller
         $animal->name = $request->input('name');
         $animal->species = $request->input('species');
         $animal->breed = $request->input('breed');
-        $animal->address = $request->input('address');
+        $animal->age = $request->input('age');
+        $animal->weigth = $request->input('weigth');
         $animal->save();
 
         session()->flash('success_message', 'The animal was succesfully added.');
@@ -32,23 +32,35 @@ class AnimalController extends Controller
 
     public function edit($id)
     {
-        $owner = Owner::findOrFail($id);
+        $animal = Animal::findOrFail($id);
 
-        return view('owners.owner-form', compact('owner'));
+        return view('animals.animal-form', compact('animal'));
     }
 
     public function update(AnimalRequest $request, $id)
     {
         $animal = Animal::findOrFail($id);
 
-        $owner->first_name = $request->input('first_name');
-        $owner->surname = $request->input('surname');
-        $owner->email = $request->input('email');
-        $owner->address = $request->input('address');
-        $owner->save();
+        $animal->name = $request->input('name');
+        $animal->species = $request->input('species');
+        $animal->breed = $request->input('breed');
+        $animal->age = $request->input('age');
+        $animal->weigth = $request->input('weigth');
+        $animal->save();
 
-        session()->flash('success_message', 'The owner was succesfully updated.');
+        session()->flash('success_message', 'The animal was succesfully updated.');
 
-        return redirect()->route('owners.edit', $owner->id);
+        return redirect()->route('animals.edit', $animal->id);
     }
+    public function animals ()
+    {
+        $all_animals = Animal::query()
+        ->orderBy('name', 'asc')
+        ->with('owner')
+        ->limit(20)
+        ->get();
+       
+        return view('animals.index', compact('all_animals'));
+
+}
 }
