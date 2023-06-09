@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('animals', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('image_id')->nullable();
-            $table->integer('owner_id')->nullable();
+            $table->bigint('image_id')->nullable();
+            $table->bigint('owner_id')->nullable();
             $table->string('name')->nullable();
             $table->string('species')->nullable();
             $table->string('breed')->nullable();
