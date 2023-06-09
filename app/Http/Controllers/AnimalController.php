@@ -100,5 +100,12 @@ class AnimalController extends Controller
         }
         return view('animals.index', compact('search_term'));
     }
+    public function detail ($id)
+    {
+        $search_animal = Animal::find($id);
+        
+        return view('animals.detail', compact('search_animal'));
+        
+    }
     
 }

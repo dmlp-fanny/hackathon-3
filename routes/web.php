@@ -42,4 +42,5 @@ Route::put('/animals/{id}', [AnimalController::class, 'update'])->name('animals.
 Route::get('/animals', [AnimalController::class, 'animals']);
 
 Route::get('/animals/search',[AnimalController::class,'animalSearch']);
+Route::get('/animals/{id}',[AnimalController::class,'detail']);
 
