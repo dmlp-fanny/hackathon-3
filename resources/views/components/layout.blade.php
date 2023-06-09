@@ -10,6 +10,7 @@
 <body>
     <nav>
         <a href="/">Home</a>
+        <a href="/animals/search">Search for the Pet</a>
         <a href="/owners/create">Add a Owner</a>
         <a href="/animals/create">Add a Pet</a>
     </nav>

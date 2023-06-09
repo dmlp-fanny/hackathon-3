@@ -6,11 +6,8 @@
     
     <form action="/animals/search" method="get">
         @csrf
-        <div class="input-group">
             Animal name: <input type="text" name="name" value="" placeholder="Search">
-            <br />
             <button type="submit">Search</button>
-        </div>
     </form>
     
     @if(isset($results)) 
