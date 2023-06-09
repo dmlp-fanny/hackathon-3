@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    @include ('components.messages')
+
     {{ $slot }}
 </body>
 </html>
