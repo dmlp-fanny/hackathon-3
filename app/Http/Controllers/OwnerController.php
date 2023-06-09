@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Owner;
+use App\Models\Animal;
 use Illuminate\Http\Request;
 
 class OwnerController extends Controller
@@ -13,4 +14,6 @@ class OwnerController extends Controller
 
         return view('owners.index', compact('all_owners'));
     }
+
+    
 }
