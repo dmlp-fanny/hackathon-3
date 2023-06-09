@@ -10,6 +10,7 @@ body {
     background: linear-gradient(300deg, rgba(219,226,226,1) 0%, rgba(210,210,185,1) 52%, rgba(255,250,238,1) 100%);
     background-repeat: no-repeat;
     background-size: contain;
+    background-attachment: fixed;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -17,7 +18,7 @@ body {
 
 nav {
     background-color: white;
-    height: 3rem;
+    min-height: 3rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -28,6 +29,19 @@ main {
     width: 60%;
     margin: 0 auto;
     padding: 10px;
+    line-height: 1.5rem;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.doctor_info img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
 }
 
 form {
@@ -44,6 +58,8 @@ input {
 button {
     border: none;
     padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
 }
 .alert-danger {
     background-color: lightcoral;
@@ -58,4 +74,16 @@ button {
 a {
     text-decoration: none;
     color:black;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+    color:black;
+    cursor: pointer;
+}
+
+.pet-name {
+    font-weight: bold;
+    margin-right: 50px;
 }

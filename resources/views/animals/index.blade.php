@@ -12,7 +12,7 @@
     
     @if(isset($results)) 
         @foreach ($results as $result)
-            <li><a href="{{$result->id}}">{{ $result->name}} | Owner: {{ $result->owner->first_name . ' ' . $result->owner->surname }}</a> </li>
+            <li><a href="{{$result->id}}"><span class="pet-name">{{ $result->name}}</span>  Owner: {{ $result->owner->first_name . ' ' . $result->owner->surname }}</a> </li>
             
         @endforeach
     @endif

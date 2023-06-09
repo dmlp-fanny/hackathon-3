@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 
 class OwnerController extends Controller
 {
-    public function show()
+    public function index()
     {
         $all_owners = Owner::orderBy('surname', 'asc')->limit(20)->get();
 
-        return view('owners.index', compact('all_owners'));
+        return view('index', compact('all_owners'));
     }
 
     public function create()
