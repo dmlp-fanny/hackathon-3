@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\OwnerController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AnimalController::class, 'index']);
-
-Route::get('/', [OwnerController::class, 'index']);
+Route::get('/', [OwnerController::class, 'show']);
